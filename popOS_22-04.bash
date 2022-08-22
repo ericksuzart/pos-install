@@ -127,6 +127,8 @@ rm -d -r oldpack newpack
 sudo add-apt-repository ppa:jonmagon/crow-translate
 sudo apt update
 sudo apt install crow-translate
+# Screen OCR used by crow-translate
+sudo apt install tesseract-ocr tesseract-ocr-eng tesseract-ocr-por tesseract-ocr-chi-sim
 
 # OBS
 sudo apt install ffmpeg
