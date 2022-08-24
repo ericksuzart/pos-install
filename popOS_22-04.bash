@@ -158,3 +158,10 @@ flatpak install flathub com.rtosta.zapzap
 # install java
 sudo apt install default-jre
 sudo apt install openjdk-17-jre-headless
+
+# install code dependencies
+sudo apt install gdb
+sudo pip install lizard
+sudo pip install flawfinder
+sudo apt install cppcheck
+sudo apt install clang
