@@ -165,3 +165,7 @@ sudo pip install lizard
 sudo pip install flawfinder
 sudo apt install cppcheck
 sudo apt install clang
+
+# install x11docker dependencies
+sudo apt install xpra xserver-xephyr xinit xauth xclip x11-xserver-utils x11-utils
+
