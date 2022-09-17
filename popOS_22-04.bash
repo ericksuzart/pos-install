@@ -166,8 +166,8 @@ sudo pip install flawfinder
 sudo apt install cppcheck
 sudo apt install clang
 
-# install x11docker
-sudo apt install xpra xserver-xephyr xinit xauth xclip x11-xserver-utils x11-utils
-curl -fsSL https://raw.githubusercontent.com/mviereck/x11docker/master/x11docker | sudo bash -s -- --update
+# boomaga: print booklets
+sudo apt install boomaga
+
 
 
