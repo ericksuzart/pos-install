@@ -169,5 +169,6 @@ sudo apt install clang
 # boomaga: print booklets
 sudo apt install boomaga
 
-
+# lightweight system monitor
+sudo apt-get install conky
 
