@@ -172,4 +172,4 @@ sudo apt install boomaga
 # lightweight system monitor
 sudo apt-get install conky
 # conky dependencies
-sudo apt install lm-sensors hddtemp nvme-cli
+sudo apt install lm-sensors hddtemp nvme-cli curl jq
