@@ -170,8 +170,8 @@ sudo apt install clang
 sudo apt install boomaga
 
 # lightweight system monitor
-sudo apt-get install conky
+sudo apt-get install conky # ou compilar do repositório fonte
 # conky dependencies
 sudo apt install lm-sensors hddtemp nvme-cli curl jq
-sudo apt install libcairo2-dev
+sudo apt install libcairo2-dev libxnvctrl-dev
 sudo apt install cmake libimlib2-dev libncurses5-dev libx11-dev libxdamage-dev libxft-dev libxinerama-dev libxml2-dev libxext-dev libcurl4-openssl-dev liblua5.3-dev
