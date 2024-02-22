@@ -236,3 +236,9 @@ echo "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://ap
 # Update and install syncthing:
 sudo apt-get update
 sudo apt-get install syncthing -y
+
+# add fingerprint support
+sudo apt remove fprintd
+sudo add-apt-repository ppa:uunicorn/open-fprintd
+sudo apt-get update
+sudo apt install open-fprintd fprintd-clients python3-validity -y
