@@ -141,11 +141,10 @@ sudo apt install gnome-tweaks
 
 # Flatpaks
 flatpak install flathub org.onlyoffice.desktopeditors
-flatpak install flathub com.github.KRTirtho.Spotube
 flatpak install flathub com.axosoft.GitKraken
 flatpak install flathub com.jgraph.drawio.desktop
 flatpak install flathub com.bitwarden.desktop
-flatpak install flathub com.rtosta.zapzap
+flatpak install flathub com.logseq.Logseq
 
 # install code dependencies
 sudo apt install gdb
@@ -214,12 +213,12 @@ sudo apt-get install libespeak-ng1 xsel -y
 python3 -m venv .venv
 source .venv/bin/activate
 pip3 install --upgrade pip
-
-# input remapper: remap input keys
-sudo apt install input-remapper-gtk -y
-
 pip3 install mycroft-mimic3-tts[all]
 # Test
 mimic3 'Hello world.' | aplay
 
 # need to add the shortcuts
+
+# input remapper: remap input keys
+sudo apt install input-remapper-gtk -y
+sudo systemctl enable --now input-remapper
