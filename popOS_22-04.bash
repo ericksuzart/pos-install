@@ -162,6 +162,8 @@ sudo apt-get install conky -y # ou compilar do repositório fonte
 sudo apt install lm-sensors hddtemp nvme-cli curl jq
 sudo apt install libcairo2-dev libxnvctrl-dev
 sudo apt install cmake libimlib2-dev libncurses5-dev libx11-dev libxdamage-dev libxft-dev libxinerama-dev libxml2-dev libxext-dev libcurl4-openssl-dev liblua5.3-dev
+# allow the use of iwconfig without needing root:
+echo "$USER $HOSTNAME = (root) NOPASSWD: /sbin/iwconfig" | sudo tee -a /etc/sudoers
 
 # dependencias para instalar extensões no gerenciador de arquivos nautilus
 sudo apt install libnautilus-extension1a git python3.8 python3-requests python3-nautilus python3-gi -y
