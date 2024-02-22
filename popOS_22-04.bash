@@ -215,6 +215,9 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip3 install --upgrade pip
 
+# input remapper: remap input keys
+sudo apt install input-remapper-gtk -y
+
 pip3 install mycroft-mimic3-tts[all]
 # Test
 mimic3 'Hello world.' | aplay
