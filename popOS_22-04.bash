@@ -203,7 +203,7 @@ cd piper
 wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/pt/pt_BR/faber/medium/pt_BR-faber-medium.onnx
 wget https://huggingface.co/rhasspy/piper-voices/raw/v1.0.0/pt/pt_BR/faber/medium/pt_BR-faber-medium.onnx.json
 # test
-bash -c "echo \"Olá mundo!.\" | ~/piper/piper --model ~/piper/pt_BR-faber-medium.onnx --output-raw |   aplay -r 22050 -f S16_LE -t raw -"
+echo "Olá mundo!" | ~/piper/piper --model ~/piper/pt_BR-faber-medium.onnx --output-raw | aplay -r 22050 -f S16_LE -t raw
 
 # need to add the shortcuts
 
@@ -214,6 +214,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip3 install --upgrade pip
 pip3 install mycroft-mimic3-tts[all]
+echo 'export PATH="$PATH:~/.local/bin"' >> ~/.bashrc
+source ~/.bashrc
 # Test
 mimic3 'Hello world.' | aplay
 
