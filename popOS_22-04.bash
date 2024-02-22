@@ -68,12 +68,16 @@ sudo apt update
 sudo apt install libopencv-dev python3-opencv
 python3 -c "import cv2; print(cv2.__version__)"
 
-# apps
+# apks
 sudo apt install gimp
 sudo apt install inkscape
 sudo apt install okular
 sudo apt install vlc
 sudo apt install terminator
+sudo apt install flatpak
+
+# config flatpack repo
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # Notion desktop
 echo "deb [trusted=yes] https://apt.fury.io/notion-repackaged/ /" | sudo tee /etc/apt/sources.list.d/notion-repackaged.list
@@ -110,9 +114,6 @@ echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https:/
 sudo apt update
 sudo apt install element-desktop
 
-# screenshot tool
-sudo apt install shutter
-
 # rustdesk
 wget https://github.com/rustdesk/rustdesk/releases/download/1.1.9/rustdesk-1.1.9.deb
 mkdir -p newpack oldpack/DEBIAN
@@ -138,26 +139,13 @@ sudo apt update && sudo apt install obs-studio
 # gnome tweaks
 sudo apt install gnome-tweaks
 
-# system-monitor applet widget
-sudo apt install gir1.2-gtop-2.0 libgtop2-dev # dependecies
-# adicionar pelo gnome-tweaks: https://extensions.gnome.org/extension/1634/resource-monitor/
-
-
-# install R
-sudo apt install r-base
-
 # Flatpaks
 flatpak install flathub org.onlyoffice.desktopeditors
 flatpak install flathub com.github.KRTirtho.Spotube
 flatpak install flathub com.axosoft.GitKraken
 flatpak install flathub com.jgraph.drawio.desktop
-flatpak install flathub com.microsoft.Teams
 flatpak install flathub com.bitwarden.desktop
 flatpak install flathub com.rtosta.zapzap
-
-# install java
-sudo apt install default-jre
-sudo apt install openjdk-17-jre-headless
 
 # install code dependencies
 sudo apt install gdb
@@ -167,15 +155,68 @@ sudo apt install cppcheck
 sudo apt install clang
 
 # boomaga: print booklets
-sudo apt install boomaga
+sudo apt install boomaga -y
 
 # lightweight system monitor
-sudo apt-get install conky # ou compilar do repositório fonte
+sudo apt-get install conky -y # ou compilar do repositório fonte
 # conky dependencies
 sudo apt install lm-sensors hddtemp nvme-cli curl jq
 sudo apt install libcairo2-dev libxnvctrl-dev
 sudo apt install cmake libimlib2-dev libncurses5-dev libx11-dev libxdamage-dev libxft-dev libxinerama-dev libxml2-dev libxext-dev libcurl4-openssl-dev liblua5.3-dev
 
 # dependencias para instalar extensões no gerenciador de arquivos nautilus
-sudo apt install libnautilus-extension1a git python3.8 python3-requests python3-nautilus python3-gi
+sudo apt install libnautilus-extension1a git python3.8 python3-requests python3-nautilus python3-gi -y
  
+# config HISTFILE and HISTFILESIZE to infinity
+sed -i 's/^HISTSIZE=.*/HISTSIZE=10000/' ~/.bashrc
+sed -i 's/^HISTFILESIZE=.*/HISTFILESIZE=-1/' ~/.bashrc
+
+# docker
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+sudo docker run hello-world
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Piper TTS
+# Install xsel: select screen text easily
+sudo apt install xsel -y
+cd ~/
+wget https://github.com/rhasspy/piper/releases/download/v1.2.0/piper_amd64.tar.gz
+tar -xvzf piper_amd64.tar.gz
+rm piper_amd64.tar.gz
+cd piper
+# voz pt-BR
+wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/pt/pt_BR/faber/medium/pt_BR-faber-medium.onnx
+wget https://huggingface.co/rhasspy/piper-voices/raw/v1.0.0/pt/pt_BR/faber/medium/pt_BR-faber-medium.onnx.json
+# test
+bash -c "echo \"Olá mundo!.\" | ~/piper/piper --model ~/piper/pt_BR-faber-medium.onnx --output-raw |   aplay -r 22050 -f S16_LE -t raw -"
+
+# need to add the shortcuts
+
+# Mimic 3 TTS
+sudo apt-get install libespeak-ng1 xsel -y
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install --upgrade pip
+
+pip3 install mycroft-mimic3-tts[all]
+# Test
+mimic3 'Hello world.' | aplay
+
+# need to add the shortcuts
