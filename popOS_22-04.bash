@@ -242,3 +242,9 @@ sudo apt remove fprintd
 sudo add-apt-repository ppa:uunicorn/open-fprintd
 sudo apt-get update
 sudo apt install open-fprintd fprintd-clients python3-validity -y
+
+# install locate
+sudo apt install locate
+sudo updatedb
+# add pt-BR support to logseq dictionary
+sudo sed -i 's/"dictionaries":\["en-US"\]/"dictionaries":["en-US", "pt-BR"]/' $(locate logseq | grep Preferences)
