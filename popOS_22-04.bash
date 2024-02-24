@@ -201,12 +201,15 @@ wget https://github.com/rhasspy/piper/releases/download/v1.2.0/piper_amd64.tar.g
 tar -xvzf piper_amd64.tar.gz
 rm piper_amd64.tar.gz
 cd piper
-# voz pt-BR
+# pt-BR voice
 wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/pt/pt_BR/faber/medium/pt_BR-faber-medium.onnx
 wget https://huggingface.co/rhasspy/piper-voices/raw/v1.0.0/pt/pt_BR/faber/medium/pt_BR-faber-medium.onnx.json
+# en-US voice
+wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/libritts/high/en_US-libritts-high.onnx
+wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/libritts/high/en_US-libritts-high.onnx.json
 # test
 echo "Olá mundo!" | ~/piper/piper --model ~/piper/pt_BR-faber-medium.onnx --output-raw | aplay -r 22050 -f S16_LE -t raw
-
+echo "Hello World!" | ~/piper/piper --model ~/piper/en_US-libritts-high.onnx --output-raw | aplay -r 22050 -f S16_LE -t raw
 # need to add the shortcuts
 
 # Mimic 3 TTS
