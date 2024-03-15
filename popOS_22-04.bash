@@ -256,3 +256,6 @@ sudo apt install locate
 sudo updatedb
 # add pt-BR support to logseq dictionary
 sudo sed -i 's/"dictionaries":\["en-US"\]/"dictionaries":["en-US", "pt-BR"]/' $(locate logseq | grep Preferences)
+
+# to manage gnome extensions
+flatpak install flathub com.mattjakeman.ExtensionManager
