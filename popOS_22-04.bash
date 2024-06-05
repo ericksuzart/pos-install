@@ -259,3 +259,6 @@ sudo sed -i 's/"dictionaries":\["en-US"\]/"dictionaries":["en-US", "pt-BR"]/' $(
 
 # to manage gnome extensions
 flatpak install flathub com.mattjakeman.ExtensionManager
+
+# flameshot, tool to get screenshots
+sudo apt install flameshot
