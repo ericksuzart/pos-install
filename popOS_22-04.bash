@@ -262,3 +262,7 @@ flatpak install flathub com.mattjakeman.ExtensionManager
 
 # flameshot, tool to get screenshots
 sudo apt install flameshot
+
+# install calibre e-book manager
+sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
