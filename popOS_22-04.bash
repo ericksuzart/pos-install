@@ -266,3 +266,5 @@ sudo apt install flameshot
 # install calibre e-book manager
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 
+# install dotnet e runtime
+sudo apt-get update &&   sudo apt-get install -y dotnet-sdk-8.0 aspnetcore-runtime-8.0
