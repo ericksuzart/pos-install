@@ -272,3 +272,5 @@ sudo apt-get update &&   sudo apt-get install -y dotnet-sdk-8.0 aspnetcore-runti
 # install fritzing - Software for circuits design
 sudo apt install fritzing*
 
+# FOSS handwriten note app
+flatpak install flathub com.adilhanney.saber
