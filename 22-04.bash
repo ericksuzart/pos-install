@@ -254,6 +254,9 @@ sudo apt install open-fprintd fprintd-clients python3-validity -y
 # install locate
 sudo apt install locate
 sudo updatedb
+# add updatedb as a command to be ran every hour
+(sudo crontab -l 2>/dev/null; echo "0 * * * * /usr/bin/updatedb") | sudo crontab -
+
 # add pt-BR support to logseq dictionary
 sudo sed -i 's/"dictionaries":\["en-US"\]/"dictionaries":["en-US", "pt-BR"]/' $(locate logseq | grep Preferences)
 
