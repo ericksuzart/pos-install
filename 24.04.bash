@@ -131,8 +131,9 @@ sudo snap install logseq
 
 # install code dependencies
 sudo apt install gdb
-sudo pip install lizard
-sudo pip install flawfinder
+sudo apt install pipx
+pipx install flawfinder
+pipx install lizard
 sudo apt install cppcheck
 sudo apt install clang
 
