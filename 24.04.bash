@@ -115,8 +115,8 @@ sudo apt install cmake extra-cmake-modules qtbase5-dev qt6-base-dev qt6-declarat
 
 # OBS
 sudo apt install ffmpeg
-sudo add-apt-repository ppa:obsproject/obs-studio
-sudo apt update && sudo apt install obs-studio
+flatpak install flathub com.obsproject.Studio
+flatpak install com.obsproject.Studio.Plugin.BackgroundRemoval
 
 # gnome tweaks
 sudo apt install gnome-tweaks
